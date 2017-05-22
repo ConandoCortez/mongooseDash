@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Creating a new Owl</title>
+        <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+        <style media="screen">
+            *{
+                margin: 0px auto;
+                padding: 0px auto;
+            }
+            body{
+                width: 970px;
+                margin: 0px auto;
+                background-color: gray;
+            }
+        </style>
+    </head>
+    <body>
+        <% if(typeof(errors) != 'undefined' ) { %>
+            <h2><%= title %></h2>
+            <% for (var i in errors) { %>
+                <h3><%= errors[i].message %></h3>
+            <% } %>
+        <% } %>
+        <h2>Creating a brand new owl</h2>
+        <table>
+            <form action="/owls" method="post">
+                <tbody>
+                    <tr>
+                        <td>Name: <input type="text" name="name"></td>
+                    </tr>
+                    <tr>
+                        <td>Age: <input type="text" name="age"></td>
+                    </tr>
+                    <tr>
+                        <td>Gender:
+                            <select name ="gender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Hoo Hoo"></td>
+                    </tr>
+                </tbody>
+            </form>
+        </table>
+    </body>
+</html>

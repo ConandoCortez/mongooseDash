@@ -1,0 +1,46 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Owl Dashboard</title>
+        <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+        <style media="screen">
+            *{
+                margin: 0px auto;
+                padding: 0px auto;
+            }
+            body{
+                width: 970px;
+                margin: 0px auto;
+                background-color: gray;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>There are some owls here</h1>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i<owls.length; i++){ %>
+                <tr>
+                    <td><%= owls[i].name %></td>
+                    <td><%= owls[i].age %></td>
+                    <td><%= owls[i].gender %></td>
+                    <td>
+                        <a href="/owls/<%=owls[i]._id%>" class="btn btn-info">Click me to display only info about me!</a>
+                        <a href="/owls/destroy/<%=owls[i]._id%>" class="btn btn-danger">Delete Me</a>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <a href="/owls/new" class="btn btn-primary">Create a new Owl</a>
+    </body>
+</html>
